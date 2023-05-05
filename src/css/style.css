@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Courier Prime";
+  src: url("font/CourierPrime-Regular.ttf") format("ttf");
+  font-display: swap;
+}
+
+body {
+  font-family: "Courier Prime", monospace;
+  width: 1192px;
+  background-color: red;
+  margin: auto;
+}
+@media screen and (max-width: 1200px) {
+  body {
+    background-color: grey;
+    width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+}
