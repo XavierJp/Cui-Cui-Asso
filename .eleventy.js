@@ -39,7 +39,7 @@ module.exports = function (eleventyConfig) {
       "🐝",
     ];
 
-    const index = Math.round(Math.random() * livingThings.length);
+    const index = Math.floor(Math.random() * livingThings.length);
     return livingThings[index];
   });
 
