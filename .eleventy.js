@@ -22,30 +22,10 @@ module.exports = function (eleventyConfig) {
     return d.getFullYear();
   });
 
-  eleventyConfig.addShortcode("life", function () {
-    const livingThings = [
-      "🍏",
-      "🐽",
-      "🐔",
-      "🐸",
-      "🦑",
-      "🦐",
-      "🦀",
-      "🪰",
-      "🐜",
-      "🐞",
-      "🐌",
-      "🦋",
-      "🐝",
-    ];
-
-    const index = Math.floor(Math.random() * livingThings.length);
-    return livingThings[index];
-  });
-
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/font");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/js");
 
   return {
     dir: { input: "src", output: "_site" },

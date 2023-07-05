@@ -177,11 +177,11 @@ body {
     align-items: center;
     gap: 15px;
 
-    > span.being {
+    > span.separator-being {
       padding: 8px;
       font-size: 1.3rem;
     }
-    > span:not(.being) {
+    > span:not(.separator-being) {
       content: "";
       position: relative;
       width: 6px;
