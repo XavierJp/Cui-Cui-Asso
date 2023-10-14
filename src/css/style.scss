@@ -264,18 +264,19 @@ a {
 
       .logo {
         display: block;
-        color: $base-background;
+        color: $base-font;
         border-radius: 100px;
-        border: 4px solid $base-font;
-        background-color: $base-font;
-        margin: 5px;
+        border: 2px dotted $base-font;
+        background-color: transparent;
+        margin: 6px;
       }
     }
   }
 
   div.menu {
     > div {
-      margin-bottom: 70px;
+      margin-bottom: 80px;
+      margin-top: 20px;
 
       > div {
         z-index: 10;
@@ -291,12 +292,12 @@ a {
 
       a {
         display: inline-block;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 10px;
         font-weight: bolder;
 
         &:hover {
-          background-color: $medaillon-shadow;
+          background-color: $medaillon;
         }
       }
     }
