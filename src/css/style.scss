@@ -157,6 +157,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 0;
+
+  p {
+    z-index: 10;
+  }
 
   p:first-of-type {
     display: inline;
@@ -173,11 +178,32 @@ body {
 
   > div.separator {
     position: relative;
-    margin: 70px 0;
+    margin: 30px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
+
+    > div {
+      z-index: -1;
+      width: 300px;
+      margin: auto;
+      color: $base-font;
+
+      &.martinets {
+        transform: translateX(130px) translateY(-30px);
+      }
+
+      &.balbuzard {
+        width: 170px;
+        margin: 10px auto;
+        transform: translateX(140px) translateY(30px);
+      }
+
+      &.lychis {
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -233,7 +259,7 @@ a {
     > div {
       width: 150px;
       border-radius: 100px;
-      border: 5px dotted $base-font;
+      border: 3px double $base-font;
       margin: 50px;
 
       .logo {
@@ -251,26 +277,26 @@ a {
     > div {
       margin-bottom: 70px;
 
-      ul {
+      > div {
         z-index: 10;
         list-style-type: none;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 40px;
-        padding: 10px 0;
         margin: 0 auto;
-        border-top: 3px dotted $base-font;
-        border-bottom: 3px dotted $base-font;
+        border-top: 3px double $base-font;
+        border-bottom: 3px double $base-font;
       }
 
       a {
+        display: inline-block;
         font-size: 1.2rem;
-        margin: 0 10px;
+        padding: 10px;
         font-weight: bolder;
 
         &:hover {
-          border-bottom: 4px solid $medaillon-shadow;
+          background-color: $medaillon-shadow;
         }
       }
     }
@@ -281,13 +307,10 @@ a {
   }
 }
 
-.social-networks {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-
+.social-networks > a {
+  line-height: 0.9rem;
   svg {
-    width: 36px;
+    width: 24px;
   }
 }
 
@@ -314,10 +337,4 @@ a {
   a {
     color: #fff;
   }
-}
-
-.martinets {
-  width: 350px;
-  margin: auto;
-  color: $medaillon-shadow;
 }

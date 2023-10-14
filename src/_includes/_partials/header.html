@@ -25,17 +25,15 @@
   </div>
   <div class="menu">
     <div>
-      <ul class="text-container">
+      <div class="text-container">
         {%- for post in blocks | filterMenu -%}
-        <li>
-          <a
-            href="#{{ post.menuTitle | defaultStr | slugify }}"
-            class="dont-style"
-            >{{ post.menuTitle }}</a
-          >
-        </li>
+        <a
+          href="#{{ post.menuTitle | defaultStr | slugify }}"
+          class="dont-style"
+          >{{ post.menuTitle }}</a
+        >
         {%- endfor -%} {% include '_partials/socials.html' %}
-      </ul>
+      </div>
     </div>
   </div>
 </div>
