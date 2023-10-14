@@ -183,8 +183,8 @@ body {
 
 img.fanzine-medaillon {
   max-width: 100%;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 1000px;
   margin: auto;
   display: block;
@@ -314,4 +314,10 @@ a {
   a {
     color: #fff;
   }
+}
+
+.martinets {
+  width: 350px;
+  margin: auto;
+  color: $medaillon-shadow;
 }
