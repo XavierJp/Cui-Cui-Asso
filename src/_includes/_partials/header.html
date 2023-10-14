@@ -26,12 +26,15 @@
   <div class="menu">
     <div>
       <ul class="text-container">
-        <li><a href="/" class="dont-style">Accueil</a></li>
-        <li><a href="/fanzines" class="dont-style">Les Fanzines</a></li>
+        {%- for post in blocks | filterMenu -%}
         <li>
-          <a href="/qui-sommes-nous" class="dont-style">Qui sommes-nous ?</a>
+          <a
+            href="#{{ post.menuTitle | defaultStr | slugify }}"
+            class="dont-style"
+            >{{ post.menuTitle }}</a
+          >
         </li>
-        <li><a href="/nous-soutenir" class="dont-style">Nous soutenir</a></li>
+        {%- endfor -%} {% include '_partials/socials.html' %}
       </ul>
     </div>
   </div>

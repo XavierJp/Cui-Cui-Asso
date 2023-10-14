@@ -1,41 +1,71 @@
 ---
 layout: layout.njk
 title: Bienvenue sur le site de Faon / zine édition
+blocks:
+  - title: Racontons
+    body: |
+      des histoires de non-humains !
+      
+      Faisons résonner la voix de toutes ces formes de vie avec qui nous cohabitons.
+      
+      Parlons de leur diversité, de leurs interactions, de leurs curiosités, de leurs fragilités et redéfinissons ensemble notre relation au vivant.
+  - menuTitle: Nos fanzines
+    title: Nos fanzines
+    medaillon: /images/cuicui-1.jpg
+    body: |
+      « Cui-Cui », le fanzine d’exploration du vivant.
+
+      « Cui-Cui » c’est des histoires de non-humains racontées par des humains.
+
+      C’est de la poésie, du conte, des nouvelles et des portraits pour explorer des paysages et découvrir des animaux et végétaux avec qui nous cohabitons sur le territoire breton.
+
+      <br/>
+      <h3 class="align-center">« Cui-Cui » #1 édition printemps</h3>
+
+      Mai 2023 • 36 pages • 8 €
+
+      Les contributeur·rices : Atelier McClane • Aurore Chapon • Charline Birault-Souchez • Timothée Cantard • Florine Gouget • Xavier Jouppe • Marine Litou • Anaïs Rallo • Morgane Roglianti
+
+      <br/>
+      <h3 class="align-center">« Cui-Cui » #2 édition hiver</h3>
+
+      Novembre 2023 • 36 pages • 8 €
+
+      Les contributeur·rices : Atelier McClane • Charline Birault-Souchez • Timothée Cantard • Jérémie Chapelain • Aurore Chapon • Sophie Courge • Adeline Faye • Marta Gennari • Xavier Jouppe • Léna Mazilu • Marine Litou • Amélie Pfab • Pipidae • Anaïs Rallo • Morgane Roglianti • Juliette Thomas
+  - menuTitle: qui sommes-nous
+    title: Faon/zine édition
+    body: |
+      est une association qui agit pour la sensibilisation à la diversité du vivant et à sa préservation en croisant les approches scientifiques et artistiques. 
+      
+      L’association propose des projets narratifs et ludiques autour de :
+      
+      - L’édition de fanzines
+      - La réalisation d’ateliers de médiation scientifique et d’animations naturalistes
+      - L’organisation de performances artistiques.
+  - menuTitle: les thunes
+    title: Faon/zine édition
+    body: |
+      regroupe des artistes, auteur·rices et naturalistes. Elle est coordonnée par :
+      - Timothée Cantard, géographe, naturaliste et auteur.
+      - Marine Litou, botaniste et dessinatrice.
+additionnalMenu:
+  - menuTitle:
+    link:
+socialNetworks:
+  - facebook: https://www.facebook.com/people/Faonzine-%C3%A9dition/100091576212414/
+  - linkedin: https://www.linkedin.com/company/cui-cui-le-fanzine-d-exploration-du-vivant/
+  - instagram: https://www.instagram.com/cui_cui_fanzine/ 
 ---
 
 <div class="paragraphs">
-  <div>
+  {%- for post in blocks -%}
     <div>
-      <h2 class="inlined-title">Racontons</h2>
-      <p>des histoires de non-humains !<br/> Faisons résonner la voix de toutes ces formes de vie avec qui nous cohabitons.
-        <br/> Parlons de leur diversité, de leurs interactions, de leurs curiosités, de leurs fragilités et redéfinissons
-        collectivement nos relations au vivant.</p>
+      {% if post.medaillon %}
+        <img class="fanzine-medaillon" src="{{ post.medaillon }}"/>
+      {% endif %}
+      <h2 id="{{ post.menuTitle | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
+      {% markdown post.body %}
     </div>
-  </div>
-  {% include '_partials/separator.html' %}
-  <div>
-    <div>
-      <h2 class="inlined-title">Qui sommes-nous ?</h2>
-      <p>Faon/zine édition est une association qui a pour objet de sensibiliser à la diversité et à la préservation du vivant
-        non-humain par :
-        <ul>
-          <li>L’édition et la diffusion de fanzines.</li>
-          <li>L’animation d’ateliers d’expression artistique.</li>
-          <li>La réalisation de performances artistiques.</li>
-        </ul>
-      </p>
-    </div>
-  </div>
-  {% include '_partials/separator.html' %}
-  <div>
-    <div>
-      <h2 class="inlined-title">Un Fanzine ?!</h2>
-      <p>Un fanzine c’est une version alternative du magazine. <br/>Indépendant et artisanal, le fanzine est réalisé par des
-        passionné.e.s pour transmettre librement les messages qui les animent.
-        <br/>Il invite à se plonger dans les sujets qui y sont abordés au gré des univers de celles et ceux qui l’ont réalisé.
-        <br/>Nous utilisons le fanzine pour concevoir des objets collaboratifs, graphiques et lyriques, qui donnent à voir la
-        diversité du vivant non-humain, ses interactions, ses curiosités et ses fragilités.</p>
-    </div>
-  </div>
-  {% include '_partials/separator.html' %}
+    {% include '_partials/separator.html' %}
+  {%- endfor -%}
 </div>

@@ -158,7 +158,7 @@ body {
   flex-direction: column;
   align-items: center;
 
-  p {
+  p:first-of-type {
     display: inline;
   }
 
@@ -178,42 +178,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 15px;
-
-    > span.separator-being-medaillon {
-      padding: 15px;
-      font-size: 1.3rem;
-      border-radius: 40px;
-      background-color: $medaillon;
-      box-shadow: 3px 3px 0 $medaillon-shadow;
-      border: 4px solid $base-background;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    > span:not(.separator-being-medaillon) {
-      content: "";
-      position: relative;
-      width: 14px;
-      height: 14px;
-      border-radius: 30px;
-      background-color: $medaillon;
-      box-shadow: 2px 2px 0 $medaillon-shadow;
-      border: 2px solid $base-background;
-    }
-
-    &:after,
-    &:before {
-      content: "";
-      position: relative;
-      width: 6px;
-      height: 6px;
-      border-radius: 30px;
-      background-color: $medaillon;
-      box-shadow: 1px 1px 0 $medaillon-shadow;
-      border: 2px solid $base-background;
-    }
   }
 }
 
@@ -317,19 +281,24 @@ a {
   }
 }
 
+.social-networks {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  svg {
+    width: 36px;
+  }
+}
+
 #footer {
   margin-top: 150px;
   display: block;
 
-  .social-network {
-    list-style-type: none;
+  .footer-social-networks {
     display: flex;
     align-items: center;
-    gap: 20px;
-
-    svg {
-      width: 36px;
-    }
+    flex-direction: row;
   }
 
   .bottom-footer {
