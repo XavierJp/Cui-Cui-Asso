@@ -293,6 +293,34 @@ a {
     }
   }
 
+  div.img-block {
+    display: flex;
+    align-items: center;
+    margin: 70px 0;
+    gap: 40px;
+
+    > img {
+      width: 300px;
+      max-width: 50%;
+    }
+
+    &:nth-of-type(even) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-of-type(1) > img {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    &:nth-of-type(2) > img {
+      border-radius: 40% 60% 29% 71% / 61% 49% 51% 39%;
+    }
+
+    &:nth-of-type(3) > img {
+      border-radius: 40% 60% 29% 71% / 26% 49% 51% 74%;
+    }
+  }
+
   p {
     z-index: 10;
   }

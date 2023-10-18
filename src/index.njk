@@ -39,34 +39,42 @@ blocks:
 
       Les contributeur·rices : Atelier McClane • Charline Birault-Souchez • Timothée Cantard • Jérémie Chapelain • Aurore Chapon • Sophie Courge • Adeline Faye • Marta Gennari • Xavier Jouppe • Léna Mazilu • Marine Litou • Amélie Pfab • Pipidae • Anaïs Rallo • Morgane Roglianti • Juliette Thomas
       
-      Bientôt disponible !
+       <div class="center button">
+        <i>Bientôt disponible !</i> 😱
+      </div>
   - menuTitle: Projets
     title: Les projets
-    body: | 
-      </br>
-    
-      **« Fanzines »**
-      
-      Raconter la diversité du vivant non-humain par la réalisation de fanzines croisant des approches scientifiques et graphiques
+    body: <br/>
+    blocksWithImg:
+      - body: |
+          **« Fanzines »**
+          
+          Raconter la diversité du vivant non-humain par la réalisation de fanzines croisant des approches scientifiques et graphiques
+        img: fanzines.png
+      - body: |
+          **« Ateliers et animations »**
 
-      **« Ateliers et animations »**
-
-      Créer des manières de voir et de comprendre la diversité du vivant par des expériences immersives et ludiques : animations naturalistes, jeux, atelier d’écriture, atelier graphique…
-
-      **« Abécédaire sauvage »**
-      
-      Documenter la faune et la flore sauvage et la révéler de manière pédagogique et créative.
+          Créer des manières de voir et de comprendre la diversité du vivant par des expériences immersives et ludiques : animations naturalistes, jeux, atelier d’écriture, atelier graphique…
+        img: ateliers.jpg
+      - body: |
+          **« Abécédaire sauvage »**
+          
+          Documenter la faune et la flore sauvage et la révéler de manière pédagogique et créative.
+        img: abecedaire.png
   - menuTitle: Qui sommes-nous ?
-    title: Faon/zine édition
+    title: Faon/zine
     body: |
-      Faon/zine édition est une association qui agit pour la sensibilisation à la diversité du vivant et à sa préservation en croisant les approches scientifiques et artistiques.
+      est une association qui agit pour la sensibilisation à la diversité du vivant et à sa préservation en croisant les approches scientifiques et artistiques.
 
       L’association regroupe des naturalistes, artistes et auteur·rices. Elle est coordonnée par :
-
-      **Timothée Cantard**, naturaliste et auteur. 
-      Diplômé de Sciences Po Rennes et de l’Institut de géographie de Paris, il se forme par la suite à l’inventaire de la faune et la flore. En parallèle de son travail d’écologue, il réalise des activités de médiation scientifique et d’enseignement en Bretagne. Il co-fonde l’association Faon/zine édition début 2023 et lance pour l’occasion le fanzine « Cui-Cui ».
-
-      **Marine Litou**, naturaliste et dessinatrice. Chargée d’études environnement en agence d’urbanisme, elle est issue d’une formation en sciences politiques et en aménagement. Elle retourne aux études pour en connaître davantage sur les espèces et leurs habitats, avec l’obtention d’un BTS Gestion et Protection de la Nature en 2022. Elle réalise des animations sur le vivant dans différentes associations à Rennes, puis avec l’association Faon/zine depuis 2023.
+    blocksWithImg:
+      - body: |
+          **Timothée Cantard**, naturaliste et auteur. 
+          Diplômé de Sciences Po Rennes et de l’Institut de géographie de Paris, il se forme par la suite à l’inventaire de la faune et la flore. En parallèle de son travail d’écologue, il réalise des activités de médiation scientifique et d’enseignement en Bretagne. Il co-fonde l’association Faon/zine édition début 2023 et lance pour l’occasion le fanzine « Cui-Cui ».
+        img: timot.jpg
+      - body: |
+          **Marine Litou**, naturaliste et dessinatrice. Chargée d’études environnement en agence d’urbanisme, elle est issue d’une formation en sciences politiques et en aménagement. Elle retourne aux études pour en connaître davantage sur les espèces et leurs habitats, avec l’obtention d’un BTS Gestion et Protection de la Nature en 2022. Elle réalise des animations sur le vivant dans différentes associations à Rennes, puis avec l’association Faon/zine depuis 2023.
+        img: marine.jpg 
   - menuTitle: Nous contacter
     title: Nous contacter
     body: | 
@@ -91,6 +99,14 @@ blocks:
       <div class="text-container">
         <h2 id="{{ post.menuTitle | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
         {% markdown post.body %}
+        {% if post.blocksWithImg %}
+          {%- for postWithImg in post.blocksWithImg -%}
+            <div class="img-block">
+              <div>{% markdown postWithImg.body %}
+              </div><img src="/images/{{ postWithImg.img }}"/>
+            </div>
+          {% endfor %}
+        {% endif %}
         {% if post.separator %}
           <div class="img-separator">
             {% include post.separator %}
