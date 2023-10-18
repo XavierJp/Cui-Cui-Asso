@@ -24,10 +24,10 @@ blocks:
 
       Les contributeur·rices : Atelier McClane • Aurore Chapon • Charline Birault-Souchez • Timothée Cantard • Florine Gouget • Xavier Jouppe • Marine Litou • Anaïs Rallo • Morgane Roglianti
 
-      <div class="center">
-        <div class="button">
+      <div class="center button">
+        <div>
           <a class="dont-style" href="https://www.helloasso.com/associations/faonzine-edition/boutiques/cui-cui-1-edition-printemps">
-            Par ici pour le commander ☞
+            ☞ Commander Cui-Cui
           </a>
         </div>
       </div>
@@ -40,7 +40,6 @@ blocks:
       Les contributeur·rices : Atelier McClane • Charline Birault-Souchez • Timothée Cantard • Jérémie Chapelain • Aurore Chapon • Sophie Courge • Adeline Faye • Marta Gennari • Xavier Jouppe • Léna Mazilu • Marine Litou • Amélie Pfab • Pipidae • Anaïs Rallo • Morgane Roglianti • Juliette Thomas
       
       Bientôt disponible !
-    separator: _partials/balbuzard.html
   - menuTitle: Projets
     title: Les projets
     body: | 
@@ -50,19 +49,13 @@ blocks:
       
       Raconter la diversité du vivant non-humain par la réalisation de fanzines croisant des approches scientifiques et graphiques
 
-      En savoir plus.
-
       **« Ateliers et animations »**
 
       Créer des manières de voir et de comprendre la diversité du vivant par des expériences immersives et ludiques : animations naturalistes, jeux, atelier d’écriture, atelier graphique…
 
-      En savoir plus.
-
       **« Abécédaire sauvage »**
+      
       Documenter la faune et la flore sauvage et la révéler de manière pédagogique et créative.
-
-      En savoir plus.
-    separator: _partials/lychis.html
   - menuTitle: Qui sommes-nous ?
     title: Faon/zine édition
     body: |
@@ -85,20 +78,25 @@ blocks:
 ---
 
 <div class="paragraphs">
-  <div>{% markdown introBlock %}
-  </div>
-  <div class="separator">
-    {% include "_partials/martinets.html" %}
+  <div class="paragraph">
+    <div class="text-container">
+      {% markdown introBlock %}
+      <div class="img-separator">
+        {% include "_partials/martinets.html" %}
+      </div>
+    </div>
   </div>
   {%- for post in blocks -%}
-    <div>
-      <h2 id="{{ post.menuTitle | defaultStr | slugify }}" class="inlined-title">✦ {{ post.title }}</h2>
-      {% markdown post.body %}
-    </div>
-    <div class="separator">
-      {% if post.separator %}
-        {% include post.separator %}
-      {% endif %}
+    <div class="paragraph">
+      <div class="text-container">
+        <h2 id="{{ post.menuTitle | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
+        {% markdown post.body %}
+        {% if post.separator %}
+          <div class="img-separator">
+            {% include post.separator %}
+          </div>
+        {% endif %}
+      </div>
     </div>
   {%- endfor -%}
 </div>

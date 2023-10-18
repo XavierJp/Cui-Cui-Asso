@@ -1,9 +1,8 @@
 $base-font: #391537;
 $base-background: #fff;
 $medaillon: #f9af40;
+$light-background: #f4edf6;
 $base-font-link-hover: transparentize($medaillon, 0.8);
-$menu-background: transparentize($base-font, 0.9);
-$footer-dark: #230020;
 
 /* CSS reset
 */
@@ -137,88 +136,6 @@ body {
   line-height: 24px;
 }
 
-.text-container {
-  width: 860px;
-  margin: auto;
-  display: block;
-
-  @media screen and (max-width: 1200px) {
-    width: calc(100% - 40px);
-    margin: 0 20px;
-  }
-
-  .align-center {
-    text-align: center;
-  }
-}
-
-.paragraphs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 0;
-
-  p {
-    z-index: 10;
-  }
-
-  p:first-of-type {
-    display: inline;
-  }
-
-  br {
-    margin-bottom: 16px;
-  }
-
-  h2.inlined-title {
-    display: inline;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    padding-top: 30px;
-  }
-
-  > div.separator {
-    position: relative;
-    margin: 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-
-    > div {
-      z-index: -1;
-      width: 300px;
-      margin: auto;
-      color: $base-font;
-
-      &.martinets {
-        transform: translateX(130px) translateY(-30px);
-      }
-
-      &.balbuzard {
-        width: 170px;
-        margin: 10px auto;
-        transform: translateX(140px) translateY(30px);
-      }
-
-      &.lychis {
-        margin: 0 auto;
-      }
-    }
-  }
-}
-
-img.fanzine-medaillon {
-  max-width: 100%;
-  width: 180px;
-  height: 180px;
-  border-radius: 1000px;
-  margin: auto;
-  display: block;
-  box-shadow: 3px 3px 0 $medaillon;
-  border: 3px solid $base-background;
-}
-
 a {
   cursor: pointer;
 
@@ -249,6 +166,21 @@ a {
   }
 }
 
+.text-container {
+  width: 860px;
+  margin: auto;
+  display: block;
+
+  @media screen and (max-width: 1200px) {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+
+  .align-center {
+    text-align: center;
+  }
+}
+
 #header {
   margin: auto;
 
@@ -275,7 +207,6 @@ a {
 
   div.menu {
     > div {
-      margin-bottom: 80px;
       margin-top: 20px;
 
       > div {
@@ -285,8 +216,8 @@ a {
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
-        border-top: 3px double $base-font;
-        border-bottom: 3px double $base-font;
+        border-top: 2px dashed $base-font;
+        border-bottom: 2px dashed $base-font;
       }
 
       a {
@@ -294,10 +225,24 @@ a {
         font-size: 1rem;
         padding: 10px;
         font-weight: bolder;
+        position: relative;
 
-        &:hover {
-          background-color: $medaillon;
-          color: $base-background;
+        &:before {
+          content: "";
+          top: 0;
+          left: 0;
+          position: absolute;
+          height: 0;
+          width: 0;
+          background: $medaillon;
+          z-index: -1;
+          border-radius: 63% 37% 47% 53% / 28% 28% 72% 72%;
+          transition: all 150ms ease-in-out;
+        }
+
+        &:hover:before {
+          height: 40px;
+          width: 40px;
         }
       }
     }
@@ -308,6 +253,92 @@ a {
   }
 }
 
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+
+  > .paragraph {
+    width: 100%;
+    padding: 100px 0;
+
+    &:nth-of-type(even) {
+      background-color: $light-background;
+    }
+
+    &:first-of-type {
+      padding-top: 80px;
+    }
+
+    div.img-separator {
+      position: relative;
+      > div {
+        z-index: 10;
+        top: 0;
+        position: absolute;
+        color: $base-font;
+
+        &.martinets {
+          width: 70%;
+          max-width: 350px;
+          right: 10%;
+        }
+
+        &.balbuzard {
+          width: 170px;
+          right: 140px;
+        }
+      }
+    }
+  }
+
+  p {
+    z-index: 10;
+  }
+
+  p:first-of-type {
+    display: inline;
+  }
+
+  br {
+    margin-bottom: 16px;
+  }
+
+  h2.inlined-title {
+    display: inline;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 30px;
+    position: relative;
+    z-index: 10;
+    padding-left: 20px;
+
+    &:before {
+      content: "";
+      bottom: -5px;
+      left: 0;
+      position: absolute;
+      height: 55px;
+      width: 55px;
+      background: $medaillon;
+      z-index: -1;
+      border-radius: 63% 37% 47% 53% / 28% 28% 72% 72%;
+    }
+  }
+
+  img.fanzine-medaillon {
+    max-width: 100%;
+    width: 180px;
+    height: 180px;
+    border-radius: 1000px;
+    margin: auto;
+    display: block;
+    box-shadow: 3px 3px 0 $medaillon;
+    border: 3px solid $base-background;
+  }
+}
+
 .social-networks > a {
   line-height: 0.9rem;
   svg {
@@ -315,48 +346,28 @@ a {
   }
 }
 
-#footer {
-  margin-top: 150px;
-  display: block;
-
-  .footer-social-networks {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  }
-
-  .bottom-footer {
-    padding-bottom: 50px;
-    background-color: $footer-dark;
-    color: #fff;
-  }
-
-  img {
-    display: block;
-  }
-
-  a {
-    color: #fff;
-  }
-}
-
-div.center {
+div.button.center {
   display: flex;
   justify-content: center;
+  margin: 20px 0;
 
-  div.button {
+  div {
     position: relative;
+    z-index: 11;
 
     > a {
-      padding: 12px;
+      padding: 20px;
       background-color: $base-background;
-      border: 1px solid $base-font;
+      border: 2px solid $base-font;
+      border-radius: 86% 14% 80% 20% / 30% 45% 55% 70%;
       display: inline-block;
       transition: all 75ms ease-in-out;
+      font-weight: bolder;
     }
 
     &:after {
       background-color: $medaillon;
+      border-radius: 63% 37% 79% 21% / 43% 58% 42% 57%;
       content: " ";
       display: block;
       height: 100%;
@@ -372,5 +383,46 @@ div.center {
         transform: translateY(-4px);
       }
     }
+  }
+}
+
+.base-font {
+  color: $base-font;
+  fill: $base-font;
+}
+
+.light-font {
+  color: $medaillon;
+  fill: $medaillon;
+}
+
+#footer {
+  margin-top: 200px;
+  display: block;
+  position: relative;
+
+  .chouette {
+    position: absolute;
+    top: -300px;
+    right: 0;
+    display: block;
+  }
+
+  .footer-social-networks {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .bottom-footer {
+    padding-bottom: 50px;
+    background-color: $base-font;
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
   }
 }
