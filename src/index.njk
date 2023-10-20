@@ -103,7 +103,8 @@ blocks:
           {%- for postWithImg in post.blocksWithImg -%}
             <div class="img-block">
               <div>{% markdown postWithImg.body %}
-              </div><img src="/images/{{ postWithImg.img }}"/>
+              </div>
+              <div class="img-container"><img src="/images/{{ postWithImg.img }}"/> </div>
             </div>
           {% endfor %}
         {% endif %}
