@@ -33,6 +33,7 @@ blocks:
       </div>
 
       <br/>
+      <img class="fanzine-medaillon" src="/images/cuicui-2.jpg"/>
       <h3 class="align-center">« Cui-Cui » #2 édition hiver</h3>
 
       <div class="align-center">Novembre 2023 • 36 pages • 8 €</div>
@@ -70,10 +71,10 @@ blocks:
     blocksWithImg:
       - body: |
           **Timothée Cantard**, naturaliste et auteur. 
-          Diplômé de Sciences Po Rennes et de l’Institut de géographie de Paris, il se forme par la suite à l’inventaire de la faune et la flore. En parallèle de son travail d’écologue, il réalise des activités de médiation scientifique et d’enseignement en Bretagne. Il co-fonde l’association Faon/zine édition début 2023 et lance pour l’occasion le fanzine « Cui-Cui ».
+          Diplômé de Sciences Po Rennes et de l’Institut de géographie de Paris, il se forme par la suite à l’inventaire de la faune et la flore. En parallèle de son travail d’écologue, il réalise des activités de médiation scientifique et d’enseignement en Bretagne.
         img: timot.jpg
       - body: |
-          **Marine Litou**, naturaliste et dessinatrice. Chargée d’études environnement en agence d’urbanisme, elle est issue d’une formation en sciences politiques et en aménagement. Elle retourne aux études pour en connaître davantage sur les espèces et leurs habitats, avec l’obtention d’un BTS Gestion et Protection de la Nature en 2022. Elle réalise des animations sur le vivant dans différentes associations à Rennes, puis avec l’association Faon/zine depuis 2023.
+          **Marine Litou**, naturaliste et dessinatrice. Chargée d’études environnement en agence d’urbanisme, elle est issue d’une formation en sciences politiques et en aménagement. Elle retourne aux études pour en connaître davantage sur les espèces et leurs habitats, avec l’obtention d’un BTS Gestion et Protection de la Nature en 2022.
         img: marine.jpg 
   - menuTitle: Nous contacter
     title: Nous contacter
@@ -104,7 +105,8 @@ blocks:
             <div class="img-block">
               <div>{% markdown postWithImg.body %}
               </div>
-              <div class="img-container"><img src="/images/{{ postWithImg.img }}"/> </div>
+              <div class="img-container"><img src="/images/{{ postWithImg.img }}"/>
+              </div>
             </div>
           {% endfor %}
         {% endif %}
