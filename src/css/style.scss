@@ -1,8 +1,10 @@
-$base-font: #391537;
-$base-background: #fff;
-$medaillon: #f9af40;
-$light-background: #f4edf6;
-$base-font-link-hover: transparentize($medaillon, 0.8);
+:root {
+  --base-font: #391537;
+  --base-background: #fff;
+  --medaillon: #f9af40;
+  --light-background: #f4edf6;
+  --base-font-link-hover: transparentize(--medaillon, 0.8);
+}
 
 /* CSS reset
 */
@@ -127,11 +129,15 @@ ul {
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Courier Prime", monospace;
-  background-color: $base-background;
+  background-color: var(--base-background);
   margin: auto;
-  color: $base-font;
+  color: var(--base-font);
   font-size: 14px;
   line-height: 24px;
 }
@@ -140,29 +146,29 @@ a {
   cursor: pointer;
 
   &:link {
-    color: $base-font;
+    color: var(--base-font);
     text-decoration: none;
 
     &:not(.dont-style) {
-      box-shadow: inset 0 -2px 0 0 $medaillon;
+      box-shadow: inset 0 -2px 0 0 var(--medaillon);
       transition: box-shadow 0.2s ease-in-out;
     }
   }
 
   &:visited {
-    color: $base-font;
+    color: var(--base-font);
   }
 
   &:hover {
-    color: $base-font;
+    color: var(--base-font);
 
     &:not(.dont-style) {
-      box-shadow: inset 0 -30px 0 0 $medaillon;
+      box-shadow: inset 0 -30px 0 0 var(--medaillon);
     }
   }
 
   &:active {
-    color: $base-font;
+    color: var(--base-font);
   }
 }
 
@@ -193,21 +199,36 @@ a {
       width: 200px;
       border-radius: 100px;
       margin: 20px;
-      box-shadow: 3px 3px 0 $medaillon;
+      box-shadow: 3px 3px 0 var(--medaillon);
 
       .logo {
         display: block;
-        color: $base-background;
+        color: var(--base-background);
         border-radius: 100px;
-        background-color: $base-font;
+        background-color: var(--base-font);
         margin: 3px;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      justify-content: start;
+
+      > div {
+        width: 100px;
+        border-radius: 100px;
+        margin: 20px 0 0 0;
+        box-shadow: 2px 2px 0 var(--medaillon);
+
+        .logo {
+          margin: 2px;
+        }
       }
     }
   }
 
   div.menu {
     > div {
-      margin-top: 20px;
+      margin-top: 40px;
 
       > div {
         z-index: 10;
@@ -216,36 +237,151 @@ a {
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
-        border-top: 2px dashed $base-font;
-        border-bottom: 2px dashed $base-font;
+        border-top: 2px dashed var(--base-font);
+        border-bottom: 2px dashed var(--base-font);
       }
 
       a {
         display: inline-block;
         font-size: 1rem;
-        padding: 10px;
         font-weight: bolder;
         position: relative;
-
-        &:before {
-          content: "";
-          top: 0;
-          left: 0;
-          position: absolute;
-          height: 0;
-          width: 0;
-          background: $medaillon;
-          z-index: -1;
-          border-radius: 63% 37% 47% 53% / 28% 28% 72% 72%;
-          transition: all 150ms ease-in-out;
-        }
-
-        &:hover:before {
-          height: 40px;
-          width: 40px;
-        }
       }
     }
+  }
+
+  a {
+    padding: 10px;
+    z-index: 1000000;
+    position: relative;
+
+    &:before {
+      content: "";
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 0;
+      width: 0;
+      background: var(--medaillon);
+      z-index: -1;
+      border-radius: 63% 37% 47% 53% / 28% 28% 72% 72%;
+      transition: all 150ms ease-in-out;
+    }
+
+    &:hover:before {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+
+    @media screen and (max-width: 1200px) {
+      display: block;
+    }
+  }
+
+  div.menu {
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  .burger {
+    position: relative;
+  }
+
+  .burger input {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    top: 40px;
+    right: 40px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 11;
+  }
+
+  .burger span {
+    display: flex;
+    width: 45px;
+    height: 4px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: var(--base-font);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 2px 0px;
+    transition: transform 0.25s ease-in-out, opacity 0.55s ease;
+
+    &:nth-of-type(2) {
+      top: 54px;
+    }
+
+    &:nth-of-type(3) {
+      top: 68px;
+    }
+  }
+
+  .burger span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  .burger span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  .burger input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: var(--medaillon);
+  }
+  .burger input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  .burger input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  .burger input:checked ~ span,
+  .burger input:checked {
+    position: fixed;
+  }
+
+  .burger > ul {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 0;
+    list-style: none;
+    font-size: 1.3rem;
+    background-color: var(--light-background);
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .burger > ul > li {
+    padding: 30px 0;
+  }
+
+  .burger input:checked ~ ul {
+    transform: none;
   }
 
   a {
@@ -264,7 +400,7 @@ a {
     padding: 100px 0;
 
     &:nth-of-type(even) {
-      background-color: $light-background;
+      background-color: var(--light-background);
     }
 
     &:first-of-type {
@@ -278,7 +414,7 @@ a {
         z-index: 10;
         top: 0;
         position: absolute;
-        color: $base-font;
+        color: var(--base-font);
 
         &.martinets {
           width: 70%;
@@ -313,7 +449,7 @@ a {
         left: -4px;
         bottom: -4px;
         right: -4px;
-        border: 2px dashed $medaillon;
+        border: 2px dashed var(--medaillon);
         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       }
     }
@@ -382,7 +518,7 @@ a {
       position: absolute;
       height: 55px;
       width: 55px;
-      background: $medaillon;
+      background: var(--medaillon);
       z-index: -1;
       border-radius: 63% 37% 47% 53% / 28% 28% 72% 72%;
     }
@@ -395,8 +531,8 @@ a {
     border-radius: 1000px;
     margin: auto;
     display: block;
-    box-shadow: 3px 3px 0 $medaillon;
-    border: 3px solid $base-background;
+    box-shadow: 3px 3px 0 var(--medaillon);
+    border: 3px solid var(--base-background);
   }
 }
 
@@ -418,8 +554,8 @@ div.button.center {
 
     > a {
       padding: 20px;
-      background-color: $base-background;
-      border: 2px solid $base-font;
+      background-color: var(--base-background);
+      border: 2px solid var(--base-font);
       border-radius: 86% 14% 80% 20% / 30% 45% 55% 70%;
       display: inline-block;
       transition: all 75ms ease-in-out;
@@ -427,7 +563,7 @@ div.button.center {
     }
 
     &:after {
-      background-color: $medaillon;
+      background-color: var(--medaillon);
       border-radius: 63% 37% 79% 21% / 43% 58% 42% 57%;
       content: " ";
       display: block;
@@ -448,13 +584,13 @@ div.button.center {
 }
 
 .base-font {
-  color: $base-font;
-  fill: $base-font;
+  color: var(--base-font);
+  fill: var(--base-font);
 }
 
 .light-font {
-  color: $medaillon;
-  fill: $medaillon;
+  color: var(--medaillon);
+  fill: var(--medaillon);
 }
 
 #footer {
@@ -479,7 +615,7 @@ div.button.center {
 
   .bottom-footer {
     padding-bottom: 50px;
-    background-color: $base-font;
+    background-color: var(--base-font);
     color: #fff;
   }
 

@@ -23,6 +23,34 @@
       </svg>
     </div>
   </div>
+  <nav role="navigation">
+    <script>
+      function closeMenu() {
+        console.log("hey");
+        var d = document.getElementById("toggle-menu");
+        d.click();
+      }
+    </script>
+    <div class="burger">
+      <input id="toggle-menu" type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul>
+        {%- for post in blocks | filterMenu -%}
+        <li>
+          <a
+            href="#{{ post.menuTitle | defaultStr | slugify }}"
+            class="dont-style"
+            onClick="window.closeMenu()"
+            >{{ post.menuTitle }}</a
+          >
+        </li>
+        {%- endfor -%}
+        <li>{% include '_partials/socials.html' %}</li>
+      </ul>
+    </div>
+  </nav>
   <div class="menu">
     <div>
       <div class="text-container">

@@ -12,4 +12,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <script>
+    var colors = [
+      ["#FFCECE", "#1e0a3c", "#FF6159"],
+      ["#C9F0FF", "#082954", "#ffce0f"],
+      ["#f4edf6", "#391537", "#f9af40"],
+    ];
+    (function main() {
+      var d = new Date().getHours();
+      var i = Math.round(d / 8);
+      document.documentElement.style.setProperty(
+        "--light-background",
+        colors[i][0]
+      );
+      document.documentElement.style.setProperty("--base-font", colors[i][1]);
+      document.documentElement.style.setProperty("--medaillon", colors[i][2]);
+    })();
+  </script>
 </head>
