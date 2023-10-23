@@ -20,7 +20,7 @@
     ];
     (function main() {
       var d = new Date().getHours();
-      var i = Math.floor(d / 8);
+      var i = Math.floor((d - 2) / 8);
       document.documentElement.style.setProperty(
         "--light-background",
         colors[i][0]
