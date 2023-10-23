@@ -17,13 +17,14 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <script>
     var colors = [
-      ["#FFCECE", "#1e0a3c", "#FF6159"],
+      ["#FFE5CE", "#1e0a3c", "#FF6159"],
       ["#C9F0FF", "#082954", "#ffce0f"],
       ["#f4edf6", "#391537", "#f9af40"],
     ];
     (function main() {
       var d = new Date().getHours();
-      var i = Math.round(d / 8);
+      var i = Math.floor(d / 8);
+      i = 0;
       document.documentElement.style.setProperty(
         "--light-background",
         colors[i][0]
@@ -31,6 +32,11 @@
       document.documentElement.style.setProperty("--base-font", colors[i][1]);
       document.documentElement.style.setProperty("--medaillon", colors[i][2]);
     })();
+
+    function closeMenu() {
+      var d = document.getElementById("toggle-menu");
+      d.click();
+    }
   </script>
 </head>
 
@@ -61,13 +67,6 @@
     </div>
   </div>
   <nav role="navigation">
-    <script>
-      function closeMenu() {
-        console.log("hey");
-        var d = document.getElementById("toggle-menu");
-        d.click();
-      }
-    </script>
     <div class="burger">
       <input id="toggle-menu" type="checkbox" />
       <span></span>
@@ -446,6 +445,7 @@ Diplômé de Sciences Po Rennes et de l’Institut de géographie de Paris, il s
 </div>
 
       </div>
+      <a href="https://github.com/XavierJp/Faon-zine">Code source</a>
       <div>2023 © ・ Faon / zine</div>
     </div>
   </div>
