@@ -17,19 +17,25 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <script>
     var colors = [
-      ["#FFE5CE", "#1e0a3c", "#FF6159"],
-      ["#C9F0FF", "#082954", "#ffce0f"],
-      ["#f4edf6", "#391537", "#f9af40"],
+      ["#FFE5CE", "#1e0a3c", "#FF6159", "#fff"],
+      ["#C9F0FF", "#082954", "#ffce0f", "#fff"],
+      ["#f4edf6", "#391537", "#f9af40", "#fff"],
+      // ["#061427", "#fff", "#4ebee0", "#082954"],
     ];
     (function main() {
       var d = new Date().getHours();
-      var i = Math.floor((d - 2) / 8);
+      var i = Math.floor(((24 + d - 2) % 24) / 8);
+
       document.documentElement.style.setProperty(
         "--light-background",
         colors[i][0]
       );
       document.documentElement.style.setProperty("--base-font", colors[i][1]);
       document.documentElement.style.setProperty("--medaillon", colors[i][2]);
+      document.documentElement.style.setProperty(
+        "--base-background",
+        colors[i][3]
+      );
     })();
 
     function closeMenu() {
@@ -260,6 +266,7 @@ Faisons résonner la voix de tous ces êtres-vivants avec qui nous cohabitons.</
 <h3 class="align-center">« Cui-Cui » #1 édition printemps</h3>
 <div class="align-center">Mai 2023 • 36 pages • 8 €</div>
 <p>Les contributeur·rices : Atelier McClane • Aurore Chapon • Charline Birault-Souchez • Timothée Cantard • Florine Gouget • Xavier Jouppe • Marine Litou • Anaïs Rallo • Morgane Roglianti</p>
+<p>Co-édité par <a href="https://instagram.com/printempsbruyant">Printemps Bruyant</a>.</p>
 <div class="center button">
   <div>
     <a class="dont-style" href="https://www.helloasso.com/associations/faonzine-edition/boutiques/cui-cui-1-edition-printemps">
