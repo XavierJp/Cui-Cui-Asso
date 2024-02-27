@@ -2,7 +2,6 @@
   "name": "code_projects",
   "version": "1.0.0",
   "description": "",
-  "main": "_site/index.html",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy"
