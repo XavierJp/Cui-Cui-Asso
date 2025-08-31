@@ -142,6 +142,14 @@ body {
   line-height: 24px;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 a {
   cursor: pointer;
 
@@ -189,30 +197,51 @@ a {
 
 #header {
   margin: auto;
-
+  font-size: 0.9rem;
+  
   .header-title {
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-
-    > div {
+    margin: 20px auto 60px auto;
+    
+    > div:first-of-type {
+      position:relative;
       width: 300px;
-      margin: 30px 0 10px;
+      margin: 30px 0 -30px;
 
       .logo {
         fill: var(--base-font) !important;
       }
+
+      div.martinets {
+        z-index: 10;
+        top: 0px;
+        right:-120px;
+        position: absolute;
+        color: var(--base-font);
+        width: 130px;
+      }
     }
+
 
     @media screen and (max-width: 1200px) {
       justify-content: start;
+      margin-bottom: 0px;
+      align-items: baseline;
 
-      > div {
+      > div:first-of-type {
         width: 170px;
         margin: 20px 0 0 -20px;
 
         .logo {
           margin: 2px;
+        }
+
+        div.martinets {
+          right:-90px;
+          width:90px;
         }
       }
     }
@@ -398,28 +427,6 @@ a {
     &:first-of-type {
       padding-top: 80px;
     }
-
-    div.img-separator {
-      position: relative;
-
-      > div {
-        z-index: 10;
-        top: 0;
-        position: absolute;
-        color: var(--base-font);
-
-        &.martinets {
-          width: 70%;
-          max-width: 350px;
-          right: 10%;
-        }
-
-        &.balbuzard {
-          width: 170px;
-          right: 140px;
-        }
-      }
-    }
   }
 
   div.img-block {
@@ -518,10 +525,9 @@ a {
 
   img.fanzine-medaillon {
     max-width: 100%;
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
     border-radius: 1000px;
-    margin: auto;
     display: block;
     box-shadow: 3px 3px 0 var(--medaillon);
     border: 3px solid var(--base-background);
