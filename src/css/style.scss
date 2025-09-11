@@ -1,8 +1,8 @@
 :root {
-  --base-font: #391537;
+  --base-font: #17191f;
   --base-background: #fff;
-  --medaillon: #f9af40;
-  --light-background: #f4edf6;
+  --medaillon: #bccbd7;
+  --light-background: #f8fbff;
   --base-font-link-hover: transparentize(--medaillon, 0.8);
 }
 
@@ -147,7 +147,22 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap:  1rem 2.5rem;
+
+  .column {
+    flex-direction: column;
+  }
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:  1rem;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction:column-reverse;
+  }
 }
 
 a {
@@ -428,63 +443,24 @@ a {
       padding-top: 80px;
     }
   }
+  div.img-block-container {
+    gap:3rem;
+    margin: 2rem auto;
 
-  div.img-block {
-    display: flex;
-    align-items: center;
-    margin: 40px 0;
-    gap: 40px;
+    div.img-block {
+      div.img-container {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: 3px 3px 0 var(--medaillon);
+        border: 3px solid var(--base-background);
 
-    div.img-container {
-      position: relative;
-
-      img {
-        width: 300px;
-      }
-      &:before {
-        content: "";
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        bottom: -4px;
-        right: -4px;
-        border: 2px dashed var(--medaillon);
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      }
-    }
-
-    &:nth-of-type(even) {
-      flex-direction: row-reverse;
-    }
-
-    @media screen and (max-width: 800px) {
-      flex-direction: column !important;
-    }
-
-    &:nth-of-type(1) > div {
-      > img {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      }
-      &:before {
-        border-radius: 33% 67% 65% 35% / 80% 35% 65% 20%;
-      }
-    }
-
-    &:nth-of-type(2) > div {
-      > img {
-        border-radius: 40% 60% 29% 71% / 61% 49% 51% 39%;
-      }
-      &:before {
-        border-radius: 33% 67% 65% 35% / 45% 78% 22% 55%;
-      }
-    }
-
-    &:nth-of-type(3) > div {
-      > img {
-        border-radius: 0;
-      }
-      &:before {
-        content: 33% 67% 65% 35% / 45% 78% 22% 55%;
+        img {
+          display: block;
+          width:100%;
+        }
       }
     }
   }
@@ -525,12 +501,18 @@ a {
 
   img.fanzine-medaillon {
     max-width: 100%;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 1000px;
     display: block;
     box-shadow: 3px 3px 0 var(--medaillon);
     border: 3px solid var(--base-background);
+  }
+
+  img.partenaire-logo {
+    max-width: 100%;
+    height: 150px;
+    display: block;
   }
 }
 
@@ -601,7 +583,7 @@ div.button.center {
     top: -300px;
     right: 0;
     display: block;
-    z-index: -1;
+    z-index: 1;
   }
 
   .footer-social-networks {
@@ -620,5 +602,18 @@ div.button.center {
 
   a {
     color: #fff;
+  }
+}
+
+.qui-sommes-nous {
+  display: flex;
+  align-items:center;
+  gap: 0rem;
+
+  img {
+    width: 300px;
+    border-radius:15px;
+    margin: auto;
+    display: flex;
   }
 }
