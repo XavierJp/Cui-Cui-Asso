@@ -286,7 +286,7 @@ a {
     }
   }
 
-  a {
+  nav a, .menu a {
     padding: 10px;
     z-index: 1000000;
     position: relative;
@@ -413,11 +413,78 @@ a {
   }
 
   .burger > ul > li {
-    padding: 30px 0;
+    padding: 20px 0;
   }
 
   .burger input:checked ~ ul {
     transform: none;
+  }
+
+  .burger .submenu {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    transform: none;
+    transition: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    padding-left: 20px;
+    
+    li {
+      padding: 10px 0;
+    }
+  }
+  .submenu {
+    li {
+      padding: 0;
+    }
+  }
+
+  .menu {
+    .menu-item {
+      position: relative;
+      display: inline-block;
+      
+      &:hover .submenu-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    
+    .submenu-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0px;
+      background: var(--light-background);
+      border: 2px dashed var(--base-font);
+      border-top: none;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0s ease;
+      z-index: 1000;
+      
+      .submenu-link {
+        display: block;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        font-weight: normal;
+        border-bottom: 2px dashed var(--base-font);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        &:hover {
+          background: var(--light-background);
+        }
+      }
+    }
   }
 
   a {

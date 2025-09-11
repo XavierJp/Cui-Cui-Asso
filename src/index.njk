@@ -4,8 +4,7 @@ seo:
   title: Cui-Cui
   description: "Association Cui-Cui : des fanzines, des ateliers et des animations pour explorer la diversité du vivant en Bretagne."
 blocks:
-  - menuTitle: Nos fanzines
-    title: Nos fanzines
+  - title: Nos fanzines
     body: |
       <br/>
       Nos fanzines c’est de la science romancée, de la poésie sauvage et des histoires en pagaille pour raconter la diversité du vivant, décortiquer les relations entre les espèces et leurs écosystèmes, découvrir leurs curiosités, leurs richesses et leurs fragilités.
@@ -55,8 +54,7 @@ blocks:
           </a>
         </div>
       </div>
-  - menuTitle: Nos animations
-    title: Nos animations
+  - title: Nos animations
     body:  |
       <br/>
 
@@ -105,8 +103,7 @@ blocks:
       <br />
       <a href="mailto:cuicuiasso@ecomail.fr">Contactez-nous</a> pour consulter notre référentiel d’animations.
       <br />
-  - menuTitle: Qui sommes-nous ?
-    title: Cui-Cui
+  - title: Cui-Cui
     body: |
       <div class="qui-sommes-nous">
         <div>
@@ -120,8 +117,7 @@ blocks:
         </div>
         <img class="qui-sommes-nous" src="/images/animaux/chardonnet.svg" />
       </div>
-  - menuTitle: Nous contacter
-    title: Nous contacter
+  - title: Nous contacter
     body: | 
       <br/>
 
@@ -138,7 +134,7 @@ blocks:
   {%- for post in blocks -%}
     <div class="paragraph">
       <div class="text-container">
-        <h2 id="{{ post.menuTitle | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
+        <h2 id="{{ post.title | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
         {% markdown post.body %}
         {% if post.blocksWithImg %}
           <div class="img-block-container flex-center">

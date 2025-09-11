@@ -8,8 +8,7 @@ introBlock: |
 
   Chaque numéro est une exploration de 36 pages à la rencontre de la diversité du vivant du territoire breton. De l’océan aux forêts, en passant par les dunes, les landes et le bocage, les 4 saisons de Cui-Cui déambulent librement au fil des saisons, à la frontière entre le réel et l’imaginaire, pour découvrir les espèces avec lesquelles nous cohabitons. 
 blocks:
-  - menuTitle: Cui-Cui # printemps 
-    title: Cui-Cui # printemps 
+  - title: Cui-Cui # printemps 
     medaillon: "/images/fanzines/cuicui-1.jpg"
     body: |
       <br/>
@@ -18,8 +17,7 @@ blocks:
 
       En collaboration avec l’association [Printemps Bruyant](https://instagram.com/printempsbruyant)
     link: https://www.helloasso.com/associations/faonzine-edition/boutiques/cui-cui-2-edition-hiver
-  - menuTitle: Cui-Cui # été 
-    title: Cui-Cui # été 
+  - title: Cui-Cui # été 
     medaillon: "/images/fanzines/cuicui-3.jpg"
     body: |
       <br/>
@@ -28,8 +26,7 @@ blocks:
 
       En collaboration avec l’association Les Cols Verts - Rennes
     link: https://www.helloasso.com/associations/faonzine-edition/boutiques/cui-cui-2-edition-hiver
-  - menuTitle: Cui-Cui # automne 
-    title: Cui-Cui # automne 
+  - title: Cui-Cui # automne 
     medaillon: "/images/fanzines/cuicui-4.jpg"
     body: |
       <br/>
@@ -38,8 +35,7 @@ blocks:
 
       En collaboration avec l’association Wild Bretagne
     link: https://www.helloasso.com/associations/faonzine-edition/boutiques/cui-cui-2-edition-hiver
-  - menuTitle: Cui-Cui # hiver 
-    title: Cui-Cui # hiver 
+  - title: Cui-Cui # hiver 
     medaillon: "/images/fanzines/cuicui-2.jpg"
     body: |
       <br/>
@@ -48,8 +44,7 @@ blocks:
       
       En collaboration avec l’association Là-Haut
     link: https://www.helloasso.com/associations/faonzine-edition/boutiques/cui-cui-2-edition-hiver
-  - menuTitle: Les assos partenaires
-    title: Les assos partenaires
+  - title: Les assos partenaires
     body: |
       <br/>
 
@@ -78,7 +73,7 @@ blocks:
   {%- for post in blocks -%}
     <div class="paragraph">
       <div class="text-container">
-        <h2 id="{{ post.menuTitle | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
+        <h2 id="{{ post.title | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
         <br/>
         {% if post.medaillon %}
           <div class="flex-row">
