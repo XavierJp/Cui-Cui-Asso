@@ -1,0 +1,117 @@
+---
+layout: layout.njk
+seo: 
+  title: Les 4 saisons de Cui-Cui
+  description: "Les 4 saisons de Cui-Cui : une série de 4 fanzines pour raconter les saisons en Bretagne à travers des paysages et les espèces qui les peuplent."
+introBlock: |
+  Les 4 saisons de Cui-Cui est une série de 4 fanzines pour raconter les saisons en Bretagne à travers des paysages et les espèces qui les peuplent.
+
+  Chaque numéro est une exploration de 36 pages à la rencontre de la diversité du vivant du territoire breton. De l’océan aux forêts, en passant par les dunes, les landes et le bocage, les 4 saisons de Cui-Cui déambulent librement au fil des saisons, à la frontière entre le réel et l’imaginaire, pour découvrir les espèces avec lesquelles nous cohabitons. 
+blocks:
+  - title: Cui-Cui # printemps 
+    medaillon: "/images/fanzines/cuicui-1.jpg"
+    body: |
+      <br/>
+
+      **Les contributeur·ices :** Atelier McClane • Aurore Chapon • Charline Birault Souchez • Timothée Cantard • Florine Gouget • Xavier Jouppe • Marine Litou • Anaïs Rallo • Morgane Roglianti
+
+      En collaboration avec l’association [Printemps Bruyant](https://instagram.com/printempsbruyant)
+    link: https://www.helloasso.com/associations/cui-cui/boutiques/cui-cui-2-edition-hiver
+  - title: Cui-Cui # été 
+    medaillon: "/images/fanzines/cuicui-3.jpg"
+    body: |
+      <br/>
+
+      **Les contributeur·ices :** Atelier McClane •  Océane Azeau • Charline Birault Souchez • Timothée Cantard • Jérémie Chapelain • Sophie Courge • Adeline Faye • Mélanie Dunand • Xavier Jouppe • Boris Chastant • Marine Litou • Marie Karedwen • Mathieu De Kiss • Anaïs Rallo • Morgane Roglianti • Juliette Thomas • Janis Aussel • Lucille Duchêne
+
+      En collaboration avec l’association [Les Cols Verts - Rennes](https://www.lescolsverts.fr/collectif-rennes)
+    link: https://www.helloasso.com/associations/cui-cui/boutiques/cui-cui-2-edition-hiver
+  - title: Cui-Cui # automne 
+    medaillon: "/images/fanzines/cuicui-4.jpg"
+    body: |
+      <br/>
+
+      **Les contributeur·ices :** Atelier McClane •  Océane Azeau • Annaëlle Toussaere • Timothée Cantard • Jérémie Chapelain • Tiphaine Debron • Adeline Faye • Mélanie Dunand • Xavier Jouppe • Naïs Roy • Marine Litou • Maelle Lopes • Vassilissa Gillard • Anaïs Rallo • Alexis Wolff • Jeanne Paqué • Morgane Roglianti • Juliette Thomas • Janis Aussel • Aurora • Lucie Rouiller • Mona Journo • Alexandre Patureau
+
+      En collaboration avec l’association [Wild Bretagne](https://wild-bretagne.fr/)
+    link: https://www.helloasso.com/associations/cui-cui/boutiques/cui-cui-2-edition-hiver
+  - title: Cui-Cui # hiver 
+    medaillon: "/images/fanzines/cuicui-2.jpg"
+    body: |
+      <br/>
+
+      **Les contributeur·ices :** Atelier McClane • Charline Birault-Souchez • Timothée Cantard • Jérémie Chapelain • Aurore Chapon • Sophie Courge • Adeline Faye • Marta Gennari • Xavier Jouppe • Léna Mazilu • Marine Litou • Amélie Pfab • Pipidae • Anaïs Rallo • Morgane Roglianti • Juliette Thomas
+      
+      En collaboration avec l’association [Là-Haut](https://lahaut.bzh/)
+    link: https://www.helloasso.com/associations/cui-cui/boutiques/cui-cui-2-edition-hiver
+  - title: Les assos partenaires
+    body: |
+      <br/>
+
+      <div class="flex-center">
+        <div class="flex-center column">
+          <a
+            href="https://wild-bretagne.fr/"
+            class="dont-style"
+          >
+          <img class="partenaire-logo" src="/images/logos/wild-logo.png"/>
+          </a>
+        </div>
+        <div class="flex-center column">
+           <a
+            href="https://instagram.com/printempsbruyant"
+            class="dont-style"
+          >
+          <img class="partenaire-logo" src="/images/logos/logo-printemps-bruyant.svg"/>
+          </a>
+        </div>
+        <div class="flex-center column">
+          <a href="https://www.lescolsverts.fr/collectif-rennes" class="dont-style"><img class="partenaire-logo" src="/images/logos/les cols verts.png"/></a>
+        </div>
+        <div class="flex-center column">
+           <a
+            href="https://lahaut.bzh/"
+            class="dont-style"
+          ><img class="partenaire-logo" src="/images/logos/là-haut.png"/>
+          </a>
+        </div>
+      </div>
+---
+
+<div class="paragraphs">
+  <div class="paragraph">
+    <div class="text-container">
+      {% markdown introBlock %}
+    </div>
+  </div>
+  {%- for post in blocks -%}
+    <div class="paragraph">
+      <div class="text-container">
+        <h2 id="{{ post.title | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
+        <br/>
+        {% if post.medaillon %}
+          <div class="flex-row">
+            <div>{% markdown post.body %}</div>
+            <img class="fanzine-medaillon" src="{{ post.medaillon }}"/>
+          </div>
+        {% else %}
+          <div>{% markdown post.body %}</div>
+        {% endif %}
+        {% if post.link %}
+          <div class="center button">
+            <div>
+              <a class="dont-style" href="{{ post.link }}">
+                ☞ Commander Cui-Cui
+              </a>
+            </div>
+          </div>
+        {% endif %}
+        {% if post.separator %}
+          <div class="img-separator">
+            {% include post.separator %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>

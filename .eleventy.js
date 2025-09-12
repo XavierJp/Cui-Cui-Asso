@@ -29,10 +29,6 @@ module.exports = function (eleventyConfig) {
     return d.getFullYear();
   });
 
-  eleventyConfig.addFilter("filterMenu", (blocks) => {
-    return blocks.filter((b) => !!b.menuTitle);
-  });
-
   eleventyConfig.addFilter("defaultStr", function (str) {
     return str || "";
   });

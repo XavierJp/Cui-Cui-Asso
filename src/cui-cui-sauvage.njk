@@ -1,0 +1,92 @@
+---
+layout: layout.njk
+seo: 
+  title: Cui-Cui sauvage
+  description: "Cui-Cui sauvage est une ode à l'ensauvagement des espaces naturels. Le fanzine explore, en 3 actes, les étapes de la succession forestière"
+introBlock: |
+  Cui-Cui sauvage est le nouveau cycle de fanzines entamé en 2025. Pour suivre les actualités liées à ce fanzine, [inscrivez-vous à l’infolettre](#infolettre).
+
+  Cui-Cui sauvage est réalisé en collaboration avec les [associations Francis Hallé](https://www.foretprimaire-francishalle.org/) pour la forêt primaire, [Wild Bretagne](https://wild-bretagne.fr/) et le podcast [Réverbe Naturelle](https://instagram.com/reverbe_naturelle). 
+
+  Cui-Cui sauvage est une ode à l’ensauvagement des espaces naturels. Le fanzine explore, en 3 actes, les étapes de la succession forestière à travers un voyage temporel dans un espace laissé en libre évolution, c'est-à-dire sans intervention humaine.  
+
+  Cui-Cui sauvage raconte l’évolution du Vivant et de l’écosystème au gré des mécanismes naturels qui se jouent, des paysages qui se transforment, des espèces qui se croisent et des années qui passent. Il invite à considérer et à contempler un espace naturel en dehors des activités humaines extractives ou récréatives et dans le temps très long nécessaire à la maturité de l’écosystème et à sa résilience.
+
+  Cui-Cui sauvage est ainsi un voyage temporel d’environ 1000 ans, d’un espace ouvert et dépeuplé jusqu’à une forêt au caractère primaire.
+blocks:
+  - title: "Tome 1 : le temps des pionnières"
+    medaillon: "/images/fanzines/cuicui-1.jpg"
+    body: |
+      <br/>
+
+      (60 pages) - 10 euros. Bientôt en prévente !
+
+      **Les contributeur·ices :** bientôt révélé•es
+
+      Pour suivre les actualités liées à ce fanzine, [inscrivez-vous à l’infolettre](#infolettre).
+  - title: Co-édité par
+    body: |
+      <br/>
+
+      <div class="flex-center">
+        <div class="flex-center column">
+          <a
+            href="https://www.foretprimaire-francishalle.org/"
+            class="dont-style"
+            >
+          <img class="partenaire-logo" src="/images/logos/asso francis hallé.jpeg"/></a>
+        </div>
+        <div class="flex-center column">
+                    <a
+            href="https://instagram.com/reverbe_naturelle"
+            class="dont-style"
+            >
+          <img class="partenaire-logo" src="/images/logos/Réverbe_naturelle_logo.jpeg"/></a>
+        </div>
+        <div class="flex-center column">
+                    <a
+            href="https://wild-bretagne.fr/"
+            class="dont-style"
+            >
+          <img class="partenaire-logo" src="/images/logos/wild-logo.png"/></a>
+        </div>
+      </div>
+---
+
+<div class="paragraphs">
+  <div class="paragraph">
+    <div class="text-container">
+      {% markdown introBlock %}
+    </div>
+  </div>
+  {%- for post in blocks -%}
+    <div class="paragraph">
+      <div class="text-container">
+        <h2 id="{{ post.title | defaultStr | slugify }}" class="inlined-title">{{ post.title }}</h2>
+        <br/>
+        {% if post.medaillon %}
+          <div class="flex-row">
+            <div>{% markdown post.body %}</div>
+            <img class="fanzine-medaillon" src="{{ post.medaillon }}"/>
+          </div>
+        {% else %}
+          <div>{% markdown post.body %}</div>
+        {% endif %}
+        {% if post.link %}
+          <div class="center button">
+            <div>
+              <a class="dont-style" href="{{ post.link }}">
+                ☞ Commander Cui-Cui
+              </a>
+            </div>
+          </div>
+        {% endif %}
+        {% if post.separator %}
+          <div class="img-separator">
+            {% include post.separator %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
