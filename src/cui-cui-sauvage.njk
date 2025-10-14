@@ -15,15 +15,17 @@ introBlock: |
   Cui-Cui sauvage est ainsi un voyage temporel d’environ 1000 ans, d’un espace ouvert et dépeuplé jusqu’à une forêt au caractère primaire.
 blocks:
   - title: "Tome 1 : le temps des pionnières"
-    medaillon: "/images/fanzines/cuicui-sauvage-2.jpg"
+    medaillon: "/images/fanzines/cuicui-sauvage-3.jpg"
     body: |
       <br/>
 
-      (60 pages) - 10 euros. Bientôt en prévente !
+      (60 pages) - 10 euros - **en prévente**
 
       **Les contributeur·ices :** bientôt révélé•es
 
       Pour suivre les actualités liées à ce fanzine, [inscrivez-vous à l’infolettre](#infolettre).
+    link: https://fr.ulule.com/cui-cui-sauvage--le-fanzine-foret-sauvage/
+    linkLabel: Accédez à la prévente
   - title: Co-édité par
     body: |
       <br/>
@@ -76,7 +78,11 @@ blocks:
           <div class="center button">
             <div>
               <a class="dont-style" href="{{ post.link }}">
-                ☞ Commander Cui-Cui
+                {% if post.linkLabel %}
+                  {{ post.linkLabel }}
+                {% else %}
+                  ☞ Commander Cui-Cui
+                {% endif %}
               </a>
             </div>
           </div>
