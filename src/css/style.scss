@@ -210,9 +210,31 @@ a {
   }
 }
 
+
 #header {
   margin: auto;
   font-size: 0.9rem;
+
+  .header-banner {
+    color:#bccbd7;
+    background-color: #355323;
+    padding: 5px 0;
+    text-align: center;
+
+    a {
+      color:#bccbd7 !important;
+      transition: color 300ps ease-in-out;
+
+      &:hover {
+        color: #355323 !important;
+      }
+    }
+
+    p {
+      margin:0;
+      padding:0;
+    }
+  }
   
   .header-title {
     display: flex;
