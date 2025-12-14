@@ -23,6 +23,12 @@ content:
         label: Lieu
         type: text
         required: true
+      - name: type
+        label: Type d'événement
+        type: select
+        options:
+          multiple: true
+          values: ["Concert", "Lecture", "Création de fanzines", "Poésie", "Balade", "Gravure", "Cartographie"]
   - name: seo
     label: Moteurs de recherche (SEO)
     type: file
