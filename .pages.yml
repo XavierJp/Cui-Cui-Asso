@@ -9,16 +9,16 @@ content:
     type: collection
     path: "src/_data/dates"
     fields:
-      - name: description
-        label: Description
-        type: string
-        required: true
       - name: date
         label: Date (YYYY-MM-DD)
         type: date
         required: true
         options:
           format: yyyy-MM-dd
+      - name: description
+        label: Description
+        type: string
+        required: true
       - name: lieu
         label: Lieu
         type: text
