@@ -1,0 +1,27 @@
+# .pages.yml
+media:
+  input: src/media
+  output: /media
+
+content:
+  # Example: Blog posts collection (adjust path to match your actual content)
+  - name: posts
+    label: Articles
+    type: collection
+    path: 'src/posts'  # Adjust this to where your posts are
+    view:
+      fields: [title, date]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+      - name: description
+        label: Description
+        type: text
+      - name: body
+        label: Content
+        type: rich-text
