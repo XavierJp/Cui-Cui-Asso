@@ -4,24 +4,29 @@ media:
   output: /images
 
 content:
-  # Example: Blog posts collection (adjust path to match your actual content)
-  - name: posts
-    label: Articles
-    type: collection
-    path: 'src/posts'  # Adjust this to where your posts are
-    view:
-      fields: [title, date]
+  - name: SEO
+    label: Optimisation pour les moteurs de recherche
+    type: file
+    path: "src/_data/site.json"
     fields:
-      - name: title
-        label: Title
+      - name: name
+        label: Nom du site
         type: string
         required: true
-      - name: date
-        label: Date
-        type: date
+      - name: title
+        label: Titre SEO
+        type: string
+        required: true
       - name: description
-        label: Description
+        label: Description SEO
         type: text
-      - name: body
-        label: Content
-        type: rich-text
+        required: true
+      - name: url
+        label: URL du site
+        type: string
+        required: true
+      - name: ogImage
+        label: Image Open Graph (chemin)
+        type: string
+        help: "Chemin vers l'image (ex: /images/og.png)"
+        required: true
