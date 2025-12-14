@@ -5,9 +5,9 @@ media:
 
 content:
   - name: dates
-    label: Prochaines dates
-    type: file
-    path: "src/_data/dates.json"
+    label: Prochains événements
+    type: collection
+    path: "src/_data/dates"
     fields:
       - name: events
         label: Événements
@@ -19,8 +19,10 @@ content:
             required: true
           - name: date
             label: Date (YYYY-MM-DD)
-            type: string
+            type: date
             required: true
+            options:
+              format: yyyy-MM-dd
           - name: lieu
             label: Lieu
             type: text
