@@ -10,7 +10,7 @@ content:
     path: "src/_data/dates"
     fields:
       - name: date
-        label: Date (YYYY-MM-DD)
+        label: Date
         type: date
         required: true
         options:
