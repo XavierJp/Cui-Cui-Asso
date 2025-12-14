@@ -1,7 +1,7 @@
 # .pages.yml
 media:
-  input: src/media
-  output: /media
+  input: src/images
+  output: /images
 
 content:
   # Example: Blog posts collection (adjust path to match your actual content)
