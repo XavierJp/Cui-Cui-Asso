@@ -9,24 +9,20 @@ content:
     type: collection
     path: "src/_data/dates"
     fields:
-      - name: events
-        label: Événements
-        type: list
-        fields:
-          - name: description
-            label: Description
-            type: string
-            required: true
-          - name: date
-            label: Date (YYYY-MM-DD)
-            type: date
-            required: true
-            options:
-              format: yyyy-MM-dd
-          - name: lieu
-            label: Lieu
-            type: text
-            required: true
+      - name: description
+        label: Description
+        type: string
+        required: true
+      - name: date
+        label: Date (YYYY-MM-DD)
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: lieu
+        label: Lieu
+        type: text
+        required: true
   - name: seo
     label: Moteurs de recherche (SEO)
     type: file
