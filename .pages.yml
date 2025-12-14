@@ -4,8 +4,29 @@ media:
   output: /images
 
 content:
-  - name: SEO
-    label: Optimisation pour les moteurs de recherche
+  - name: dates
+    label: Prochaines dates
+    type: file
+    path: "src/_data/dates.json"
+    fields:
+      - name: events
+        label: Événements
+        type: list
+        fields:
+          - name: description
+            label: Description
+            type: string
+            required: true
+          - name: date
+            label: Date (YYYY-MM-DD)
+            type: string
+            required: true
+          - name: lieu
+            label: Lieu
+            type: text
+            required: true
+  - name: seo
+    label: Moteurs de recherche (SEO)
     type: file
     path: "src/_data/site.json"
     fields:
