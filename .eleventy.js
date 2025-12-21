@@ -68,7 +68,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("markdown", (str) => {
     return md.render(str);
   });
-  
+
+  // French date formatting filter
+  eleventyConfig.addFilter("frenchDate", function(dateString) {
+    const date = new Date(dateString);
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+    return date.toLocaleDateString('fr-FR', options);
+  });
 
 
   eleventyConfig.addPassthroughCopy("src/font");

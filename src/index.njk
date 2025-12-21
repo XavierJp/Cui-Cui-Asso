@@ -87,7 +87,7 @@ blocks:
     postBody: |
       <br/>
 
-      Cui-Cui organise également des performances artistiques pour donner corps aux fanzines édités par l’association : lecture, slam, lecture musicale, perchée et/ou dessinée, concerts… 
+      Cui-Cui organise également des performances artistiques pour donner corps aux fanzines édités par l'association : lecture, slam, lecture musicale, perchée et/ou dessinée, concerts…
       <br/>
       <div class="flex-center">
         <div class="flex-center column">
@@ -104,8 +104,8 @@ blocks:
         </div>
       </div>
       <br />
-      <a href="mailto:cuicuiasso@ecomail.fr">Contactez-nous</a> pour consulter notre référentiel d’animations.
-      <br />
+      <a href="mailto:cuicuiasso@ecomail.fr">Contactez-nous</a> pour consulter notre référentiel d'animations.
+    showEvents: true
   - title: Cui-Cui
     body: |
       <div class="qui-sommes-nous">
@@ -153,6 +153,28 @@ blocks:
         {% endif %}
         {% if post.postBody %}
           {% markdown post.postBody %}
+        {% endif %}
+
+        {% if post.showEvents and (dates | length) > 0 %}
+          <br />
+          <br />
+          <br />
+          <h3>Calendrier</h3>
+          <p>Participez à une de nos prochaines animations :</p>
+          {% for key, event in dates %}
+            <div class="event-item">
+              <strong>Le {{ event.date | frenchDate }}</strong> à {{ event.lieu }}{% if event.type and event.type.length > 0 %}
+                <div class="event-tags">
+                  {% for tag in event.type %}
+                    <span class="event-tag">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <br/>
+              <em>{{ event.description }}</em>
+            </div>
+            <br/>
+          {% endfor %}
         {% endif %}
       </div>
     </div>

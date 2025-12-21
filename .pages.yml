@@ -8,6 +8,7 @@ content:
     label: Prochains événements
     type: collection
     path: "src/_data/dates"
+    format: json
     fields:
       - name: date
         label: Date

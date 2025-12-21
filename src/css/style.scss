@@ -147,7 +147,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap:  1rem 2.5rem;
+  gap: 1rem 2.5rem;
 
   .column {
     flex-direction: column;
@@ -158,10 +158,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:  1rem;
+  gap: 1rem;
 
   @media screen and (max-width: 1200px) {
-    flex-direction:column-reverse;
+    flex-direction: column-reverse;
   }
 }
 
@@ -210,19 +210,18 @@ a {
   }
 }
 
-
 #header {
   margin: auto;
   font-size: 0.9rem;
 
   .header-banner {
-    color:#bccbd7;
+    color: #bccbd7;
     background-color: #355323;
     padding: 5px 0;
     text-align: center;
 
     a {
-      color:#bccbd7 !important;
+      color: #bccbd7 !important;
       transition: color 300ps ease-in-out;
 
       &:hover {
@@ -231,20 +230,20 @@ a {
     }
 
     p {
-      margin:0;
-      padding:0;
+      margin: 0;
+      padding: 0;
     }
   }
-  
+
   .header-title {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 20px auto 60px auto;
-    
+
     > div:first-of-type {
-      position:relative;
+      position: relative;
       width: 300px;
       margin: 30px 0 -30px;
 
@@ -255,13 +254,12 @@ a {
       div.martinets {
         z-index: 10;
         top: 0px;
-        right:-120px;
+        right: -120px;
         position: absolute;
         color: var(--base-font);
         width: 130px;
       }
     }
-
 
     @media screen and (max-width: 1200px) {
       justify-content: start;
@@ -277,8 +275,8 @@ a {
         }
 
         div.martinets {
-          right:-90px;
-          width:90px;
+          right: -90px;
+          width: 90px;
         }
       }
     }
@@ -308,7 +306,8 @@ a {
     }
   }
 
-  nav a, .menu a {
+  nav a,
+  .menu a {
     padding: 10px;
     z-index: 1000000;
     position: relative;
@@ -363,7 +362,9 @@ a {
     border-radius: 3px;
     z-index: 1;
     transform-origin: 2px 0px;
-    transition: transform 0.25s ease-in-out, opacity 0.55s ease;
+    transition:
+      transform 0.25s ease-in-out,
+      opacity 0.55s ease;
 
     &:nth-of-type(2) {
       top: 54px;
@@ -440,7 +441,7 @@ a {
     align-items: center;
     font-size: 1.1rem;
     padding-left: 20px;
-    
+
     li {
       padding: 10px 0;
     }
@@ -455,14 +456,14 @@ a {
     .menu-item {
       position: relative;
       display: inline-block;
-      
+
       &:hover .submenu-dropdown {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
       }
     }
-    
+
     .submenu-dropdown {
       position: absolute;
       top: 100%;
@@ -476,18 +477,18 @@ a {
       transform: translateY(-10px);
       transition: all 0s ease;
       z-index: 1000;
-      
+
       .submenu-link {
         display: block;
         padding: 10px 15px;
         font-size: 0.9rem;
         font-weight: normal;
         border-bottom: 2px dashed var(--base-font);
-        
+
         &:last-child {
           border-bottom: none;
         }
-        
+
         &:hover {
           background: var(--light-background);
         }
@@ -519,7 +520,7 @@ a {
     }
   }
   div.img-block-container {
-    gap:3rem;
+    gap: 3rem;
     margin: 2rem auto;
 
     div.img-block {
@@ -534,7 +535,7 @@ a {
 
         img {
           display: block;
-          width:100%;
+          width: 100%;
         }
       }
     }
@@ -702,12 +703,12 @@ div.button.center {
 
 .qui-sommes-nous {
   display: flex;
-  align-items:center;
+  align-items: center;
   gap: 0rem;
 
   img {
     width: 300px;
-    border-radius:15px;
+    border-radius: 15px;
     margin: auto;
     display: flex;
   }
@@ -715,4 +716,21 @@ div.button.center {
   @media screen and (max-width: 1200px) {
     flex-direction: column;
   }
+}
+
+.event-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.event-tag {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  background-color: var(--medaillon);
+  color: var(--base-font);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
