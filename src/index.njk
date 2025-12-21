@@ -161,7 +161,7 @@ blocks:
           <br />
           <h3>Calendrier</h3>
           <p>Participez à une de nos prochaines animations :</p>
-          {% for key, event in dates %}
+          {% for event in dates %}
             <div class="event-item">
               <strong>Le {{ event.date | frenchDate }}</strong> à {{ event.lieu }}{% if event.type and event.type.length > 0 %}
                 <div class="event-tags">
